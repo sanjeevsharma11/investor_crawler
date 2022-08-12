@@ -32,11 +32,12 @@ const fetchFeedsByLimit = async (limit = 10, skip = 0) => {
   }
 };
 
-// cron run after 10 minutes
+// cron run after 30 minutes
 cron
-  .schedule('*/10 * * * *', async () => {
+  .schedule('*/30 * * * *', async () => {
     await fetchFeedsByLimit(10, 0);
-  }).start();
+  })
+  .start();
 
 const PORT = process.env.PORT ?? 5731;
 
